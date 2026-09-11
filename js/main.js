@@ -311,4 +311,57 @@
     sections.forEach(function(s){ io.observe(s); });
   }
 
+/* Hero typewriter effect */
+document.addEventListener("DOMContentLoaded", () => {
+  const heading = document.getElementById("hero-typewriter");
+
+  if (!heading) return;
+
+  const text = "I design digital experiences that make complex things feel simple.";
+  const highlightText = "digital experiences";
+
+  const textContainer = heading.querySelector(".typewriter-text");
+  const cursor = heading.querySelector(".typewriter-cursor");
+
+  let index = 0;
+
+  function typeNextCharacter() {
+    if (index < text.length) {
+      const currentText = text.slice(0, index + 1);
+
+      if (currentText.includes(highlightText)) {
+        const before = currentText.slice(
+          0,
+          currentText.indexOf(highlightText)
+        );
+
+        const highlighted = currentText.slice(
+          currentText.indexOf(highlightText),
+          currentText.indexOf(highlightText) + highlightText.length
+        );
+
+        const after = currentText.slice(
+          currentText.indexOf(highlightText) + highlightText.length
+        );
+
+        textContainer.innerHTML =
+          before +
+          `<span class="typewriter-highlight">${highlighted}</span>` +
+          after;
+      } else {
+        textContainer.textContent = currentText;
+      }
+
+      index++;
+      setTimeout(typeNextCharacter, 45);
+    } else {
+      cursor.style.display = "inline-block";
+    }
+  }
+
+  /* Start after a short delay */
+  setTimeout(typeNextCharacter, 500);
+});
+   
+   
 })();
