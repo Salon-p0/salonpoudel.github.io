@@ -837,4 +837,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transform: translateY(0);
 }
 
+.hero-heading-wrap {
+  text-align: left;
+}
+
+.hero-eyebrow {
+  text-align: left;
+}
+
+.hero-heading {
+  text-align: left;
+}
+
 }
