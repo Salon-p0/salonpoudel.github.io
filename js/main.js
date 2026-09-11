@@ -318,6 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!heading) return;
 
   const textContainer = heading.querySelector(".typewriter-text");
+  const heroSubRow = document.querySelector(".hero-sub-row");
 
   const fullText =
     "I design digital experiences that make complex things feel simple.";
@@ -355,10 +356,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (index < fullText.length) {
       index++;
       setTimeout(renderText, 45);
+    } else {
+      /* Show subtitle and button after typing finishes */
+      setTimeout(() => {
+        if (heroSubRow) {
+          heroSubRow.classList.add("is-visible");
+        }
+      }, 300);
     }
   }
 
   setTimeout(renderText, 500);
-});   
+});
    
 })();
