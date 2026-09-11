@@ -323,9 +323,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const fullText =
     "I design digital experiences that make complex things feel simple.";
 
-  const beforeHighlight = "I design ";
-  const highlightText = "digital experiences";
-  const afterHighlight = " that make complex things feel simple.";
+  const beforeHighlight = "I Design ";
+  const highlightText = "Digital Experiences";
+  const afterHighlight = " That Make Complex Things Feel Simple.";
 
   let index = 0;
 
