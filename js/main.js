@@ -312,7 +312,6 @@
   }
 
 /* Hero Typewriter Effect */
-/* Hero Typewriter Effect */
 document.addEventListener("DOMContentLoaded", () => {
   const heading = document.getElementById("hero-typewriter");
   const eyebrow = document.querySelector(".hero-eyebrow");
@@ -323,11 +322,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const textContainer = heading.querySelector(".typewriter-text");
 
   const fullText =
-    "I design digital experiences that make complex things feel simple.";
+    "I Design Digital Experiences That Make Complex Things Feel Simple.";
 
-  const beforeHighlight = "I design ";
-  const highlightText = "digital experiences";
-  const afterHighlight = " that make complex things feel simple.";
+  const beforeHighlight = "I Design ";
+  const highlightText = "Digital Experiences";
+  const afterHighlight = " That Make Complex Things Feel Simple.";
 
   let index = 0;
 
