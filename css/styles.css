@@ -635,6 +635,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .about-portrait {
   aspect-ratio: 4 / 5;
   overflow: hidden;
+   border-radius: 20px;
 }
 
 .about-portrait img {
