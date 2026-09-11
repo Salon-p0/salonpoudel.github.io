@@ -312,13 +312,15 @@
   }
 
 /* Hero Typewriter Effect */
+/* Hero Typewriter Effect */
 document.addEventListener("DOMContentLoaded", () => {
   const heading = document.getElementById("hero-typewriter");
+  const eyebrow = document.querySelector(".hero-eyebrow");
+  const heroIntro = document.querySelector(".hero-intro-reveal");
 
   if (!heading) return;
 
   const textContainer = heading.querySelector(".typewriter-text");
-  const heroIntroElements = document.querySelectorAll(".hero-intro-reveal");
 
   const fullText =
     "I design digital experiences that make complex things feel simple.";
@@ -328,6 +330,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const afterHighlight = " that make complex things feel simple.";
 
   let index = 0;
+
+  /* Show eyebrow first */
+  setTimeout(() => {
+    if (eyebrow) {
+      eyebrow.classList.add("is-visible");
+    }
+  }, 300);
 
   function renderText() {
     const typedText = fullText.slice(0, index);
@@ -357,16 +366,17 @@ document.addEventListener("DOMContentLoaded", () => {
       index++;
       setTimeout(renderText, 45);
     } else {
-      /* Heading finished, reveal eyebrow + subtitle + button */
+      /* Show subtitle and button after title finishes */
       setTimeout(() => {
-        heroIntroElements.forEach((element) => {
-          element.classList.add("is-visible");
-        });
-      }, 300);
+        if (heroIntro) {
+          heroIntro.classList.add("is-visible");
+        }
+      }, 400);
     }
   }
 
-  setTimeout(renderText, 500);
+  /* Start typing after eyebrow appears */
+  setTimeout(renderText, 900);
 });
    
 })();
