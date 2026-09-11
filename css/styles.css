@@ -786,11 +786,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
 }
 
-/* Hero typewriter */
-.hero-heading {
-  min-height: 2.4em;
-}
-
+/* Hero Typewriter */
 .typewriter-text {
   display: inline;
 }
@@ -826,4 +822,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   100% {
     opacity: 0;
   }
+}
+
 }
