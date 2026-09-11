@@ -325,11 +325,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!textContainer) return;
 
   const fullText =
-    "I Design Digital Experiences That Make Complex Things Feel Simple.";
+    "Creating Better Digital Experiences Through Design, Content, And Marketing.";
 
-  const beforeHighlight = "I Design ";
+  const beforeHighlight = "Creating Better ";
   const highlightText = "Digital Experiences";
-  const afterHighlight = " That Make Complex Things Feel Simple.";
+  const afterHighlight = " Through Design, Content, And Marketing.";
 
   let index = 0;
 
