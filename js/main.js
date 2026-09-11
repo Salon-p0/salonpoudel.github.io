@@ -312,14 +312,17 @@
   }
 
 /* Hero Typewriter Effect */
+/* Hero Typewriter + Reveal Animation */
 document.addEventListener("DOMContentLoaded", () => {
   const heading = document.getElementById("hero-typewriter");
-  const eyebrow = document.querySelector(".hero-eyebrow");
+  const eyebrow = document.querySelector(".eyebrow-reveal");
   const heroIntro = document.querySelector(".hero-intro-reveal");
 
   if (!heading) return;
 
   const textContainer = heading.querySelector(".typewriter-text");
+
+  if (!textContainer) return;
 
   const fullText =
     "I Design Digital Experiences That Make Complex Things Feel Simple.";
@@ -330,29 +333,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let index = 0;
 
-  /* Show eyebrow first */
+  /* Step 1: Reveal eyebrow */
   setTimeout(() => {
     if (eyebrow) {
       eyebrow.classList.add("is-visible");
     }
   }, 300);
 
-  function renderText() {
+  /* Step 2: Type heading */
+  function typeNextCharacter() {
     const typedText = fullText.slice(0, index);
 
-    const before = typedText.slice(0, beforeHighlight.length);
+    const before = typedText.slice(
+      0,
+      beforeHighlight.length
+    );
 
     const highlightStart = beforeHighlight.length;
-    const highlightEnd = highlightStart + highlightText.length;
+    const highlightEnd =
+      highlightStart + highlightText.length;
 
     const highlighted = typedText.slice(
       highlightStart,
       Math.min(index, highlightEnd)
     );
 
-    const after = index > highlightEnd
-      ? typedText.slice(highlightEnd)
-      : "";
+    const after =
+      index > highlightEnd
+        ? typedText.slice(highlightEnd)
+        : "";
 
     textContainer.innerHTML =
       before +
@@ -363,9 +372,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (index < fullText.length) {
       index++;
-      setTimeout(renderText, 45);
+      setTimeout(typeNextCharacter, 45);
     } else {
-      /* Show subtitle and button after title finishes */
+      /* Step 3: Wait briefly after title finishes */
       setTimeout(() => {
         if (heroIntro) {
           heroIntro.classList.add("is-visible");
@@ -374,8 +383,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* Start typing after eyebrow appears */
-  setTimeout(renderText, 900);
+  /* Start typing after eyebrow has appeared */
+  setTimeout(() => {
+    typeNextCharacter();
+  }, 1100);
 });
    
 })();
