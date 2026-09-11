@@ -311,57 +311,54 @@
     sections.forEach(function(s){ io.observe(s); });
   }
 
-/* Hero typewriter effect */
+/* Hero Typewriter Effect */
 document.addEventListener("DOMContentLoaded", () => {
   const heading = document.getElementById("hero-typewriter");
 
   if (!heading) return;
 
-  const text = "I design digital experiences that make complex things feel simple.";
-  const highlightText = "digital experiences";
-
   const textContainer = heading.querySelector(".typewriter-text");
-  const cursor = heading.querySelector(".typewriter-cursor");
+
+  const fullText =
+    "I design digital experiences that make complex things feel simple.";
+
+  const beforeHighlight = "I design ";
+  const highlightText = "digital experiences";
+  const afterHighlight = " that make complex things feel simple.";
 
   let index = 0;
 
-  function typeNextCharacter() {
-    if (index < text.length) {
-      const currentText = text.slice(0, index + 1);
+  function renderText() {
+    const typedText = fullText.slice(0, index);
 
-      if (currentText.includes(highlightText)) {
-        const before = currentText.slice(
-          0,
-          currentText.indexOf(highlightText)
-        );
+    const before = typedText.slice(0, beforeHighlight.length);
 
-        const highlighted = currentText.slice(
-          currentText.indexOf(highlightText),
-          currentText.indexOf(highlightText) + highlightText.length
-        );
+    const highlightStart = beforeHighlight.length;
+    const highlightEnd = highlightStart + highlightText.length;
 
-        const after = currentText.slice(
-          currentText.indexOf(highlightText) + highlightText.length
-        );
+    const highlighted = typedText.slice(
+      highlightStart,
+      Math.min(index, highlightEnd)
+    );
 
-        textContainer.innerHTML =
-          before +
-          `<span class="typewriter-highlight">${highlighted}</span>` +
-          after;
-      } else {
-        textContainer.textContent = currentText;
-      }
+    const after = index > highlightEnd
+      ? typedText.slice(highlightEnd)
+      : "";
 
+    textContainer.innerHTML =
+      before +
+      (highlighted
+        ? `<span class="typewriter-highlight">${highlighted}</span>`
+        : "") +
+      after;
+
+    if (index < fullText.length) {
       index++;
-      setTimeout(typeNextCharacter, 45);
-    } else {
-      cursor.style.display = "inline-block";
+      setTimeout(renderText, 45);
     }
   }
 
-  /* Start after a short delay */
-  setTimeout(typeNextCharacter, 500);
-});
-   
+  setTimeout(renderText, 500);
+});   
    
 })();
