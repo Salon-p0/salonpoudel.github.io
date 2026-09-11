@@ -318,14 +318,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!heading) return;
 
   const textContainer = heading.querySelector(".typewriter-text");
-  const heroSubRow = document.querySelector(".hero-sub-row");
+  const heroIntroElements = document.querySelectorAll(".hero-intro-reveal");
 
   const fullText =
-    "I Design Digital Experiences That Make Complex Things Feel Simple.";
+    "I design digital experiences that make complex things feel simple.";
 
-  const beforeHighlight = "I Design ";
-  const highlightText = "Digital Experiences";
-  const afterHighlight = " That Make Complex Things Feel Simple.";
+  const beforeHighlight = "I design ";
+  const highlightText = "digital experiences";
+  const afterHighlight = " that make complex things feel simple.";
 
   let index = 0;
 
@@ -357,11 +357,11 @@ document.addEventListener("DOMContentLoaded", () => {
       index++;
       setTimeout(renderText, 45);
     } else {
-      /* Show subtitle and button after typing finishes */
+      /* Heading finished, reveal eyebrow + subtitle + button */
       setTimeout(() => {
-        if (heroSubRow) {
-          heroSubRow.classList.add("is-visible");
-        }
+        heroIntroElements.forEach((element) => {
+          element.classList.add("is-visible");
+        });
       }, 300);
     }
   }
