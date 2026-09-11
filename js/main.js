@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSubRow = document.querySelector(".hero-sub-row");
 
   const fullText =
-    "I design digital experiences that make complex things feel simple.";
+    "I Design Digital Experiences That Make Complex Things Feel Simple.";
 
   const beforeHighlight = "I Design ";
   const highlightText = "Digital Experiences";
